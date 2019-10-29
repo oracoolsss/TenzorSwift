@@ -91,6 +91,7 @@ class Console {
                 print("Please write correct index")
                 continue
             }
+
             if(storage.cars.count > carIndex && carIndex >= 0) {
                 storage.removeCar(carIndex)
             }
