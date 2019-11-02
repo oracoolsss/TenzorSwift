@@ -80,8 +80,28 @@ class Console {
         guard let carModel = readLine() else {
             fatalError("Ooops...")
         }
-
-        storage.addCar(Car(name: carName, year: carYear, model: carModel))
+        
+        print("write yes if you want to add car with special index, write something else if you don't want to do this")
+        guard let answer = readLine() else {
+            fatalError("Ooops...")
+        }
+        if answer != "yes" {
+            storage.addCar(Car(name: carName, year: carYear, model: carModel))
+            return
+        }
+        
+        print("write preferable index")
+        while true {
+            guard let indexOfStr = readLine(), let index = Int(indexOfStr) else {
+                print("Please write correct index")
+                continue
+            }
+            
+            if index >= 0 {
+                storage.addCar(Car(name: carName, year: carYear, model: carModel), index)
+                break
+            }
+        }
     }
     
     private func removeAtIndex() {
@@ -118,7 +138,7 @@ class Console {
         print("""
                 write parameter
                 ind - to delete car on index
-                parameter - to delet car in it's parameter (year, model etc)
+                param - to delet car in it's parameter (year, model etc)
                 cancel or smth else - cancel operation
                 """)
         
@@ -128,7 +148,7 @@ class Console {
         switch param {
         case "ind":
             removeAtIndex()
-        case "parameter":
+        case "param":
             removeAtParam()
         default:
             print("ok, it was your choice")

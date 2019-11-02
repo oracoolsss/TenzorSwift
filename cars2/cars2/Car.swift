@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Car: CustomStringConvertible, Equatable {
+struct Car: CustomStringConvertible, Equatable, Codable {
     private let id: UUID = UUID()
     
     let name: String
