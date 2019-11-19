@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpM-Dq-2WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="69"/>
+            <point key="canvasLocation" x="1922" y="823"/>
         </scene>
         <!--Image List View Controller-->
         <scene sceneID="LdC-um-mzv">
@@ -121,6 +121,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-8m-FLi">
+                                <rect key="frame" x="0.0" y="212" width="375" height="243"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="90j-wl-CLc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -132,18 +135,21 @@
                             <constraint firstItem="CIO-Pl-dfG" firstAttribute="trailing" secondItem="90j-wl-CLc" secondAttribute="trailing" id="5iS-0N-SyE"/>
                             <constraint firstItem="CIO-Pl-dfG" firstAttribute="bottom" secondItem="90j-wl-CLc" secondAttribute="bottom" id="bfn-hl-kzQ"/>
                             <constraint firstItem="90j-wl-CLc" firstAttribute="leading" secondItem="CIO-Pl-dfG" secondAttribute="leading" id="dEh-fk-WH3"/>
+                            <constraint firstItem="0fd-8m-FLi" firstAttribute="leading" secondItem="CIO-Pl-dfG" secondAttribute="leading" id="ea3-bs-Kjw"/>
                             <constraint firstItem="90j-wl-CLc" firstAttribute="top" secondItem="CIO-Pl-dfG" secondAttribute="top" id="nkC-3Z-u61"/>
+                            <constraint firstItem="0fd-8m-FLi" firstAttribute="trailing" secondItem="CIO-Pl-dfG" secondAttribute="trailing" id="oGh-Sf-IUB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CIO-Pl-dfG"/>
                     </view>
                     <navigationItem key="navigationItem" id="oYi-Nz-TO4"/>
                     <connections>
+                        <outlet property="imageView" destination="0fd-8m-FLi" id="BnT-8F-XDa"/>
                         <outlet property="tableView" destination="90j-wl-CLc" id="xj8-65-MpQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mLp-XJ-UeL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="68.815592203898049"/>
+            <point key="canvasLocation" x="1052" y="64"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rDg-zO-jpv">
