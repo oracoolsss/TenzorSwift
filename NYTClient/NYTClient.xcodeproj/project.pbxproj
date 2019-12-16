@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132D5F4A23A7AE060082A054 /* NMPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D5F4923A7AE060082A054 /* NMPViewController.swift */; };
+		132D5F4C23A7AE260082A054 /* NMPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D5F4B23A7AE260082A054 /* NMPViewModel.swift */; };
+		132D5F4E23A7AE6E0082A054 /* NMPPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D5F4D23A7AE6E0082A054 /* NMPPresenter.swift */; };
+		132D5F5023A7AE830082A054 /* NMPServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D5F4F23A7AE830082A054 /* NMPServices.swift */; };
 		13EE06D523A55D2800983F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EE06D423A55D2800983F7E /* AppDelegate.swift */; };
 		13EE06D723A55D2800983F7E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EE06D623A55D2800983F7E /* TestViewController.swift */; };
 		13EE06DA23A55D2800983F7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13EE06D823A55D2800983F7E /* Main.storyboard */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		132D5F4923A7AE060082A054 /* NMPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMPViewController.swift; sourceTree = "<group>"; };
+		132D5F4B23A7AE260082A054 /* NMPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMPViewModel.swift; sourceTree = "<group>"; };
+		132D5F4D23A7AE6E0082A054 /* NMPPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMPPresenter.swift; sourceTree = "<group>"; };
+		132D5F4F23A7AE830082A054 /* NMPServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMPServices.swift; sourceTree = "<group>"; };
 		13EE06D123A55D2800983F7E /* NYTClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EE06D423A55D2800983F7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13EE06D623A55D2800983F7E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,10 @@
 				13EE06F423A60FE400983F7E /* MostPopularService.swift */,
 				13EE06F623A612CC00983F7E /* AuthLogin.swift */,
 				13EE06F823A61CDB00983F7E /* CloudImageService.swift */,
+				132D5F4923A7AE060082A054 /* NMPViewController.swift */,
+				132D5F4B23A7AE260082A054 /* NMPViewModel.swift */,
+				132D5F4D23A7AE6E0082A054 /* NMPPresenter.swift */,
+				132D5F4F23A7AE830082A054 /* NMPServices.swift */,
 			);
 			path = NYTClient;
 			sourceTree = "<group>";
@@ -164,15 +176,19 @@
 			files = (
 				13EE06EF23A585AD00983F7E /* TableCell.swift in Sources */,
 				13EE06F523A60FE400983F7E /* MostPopularService.swift in Sources */,
+				132D5F4E23A7AE6E0082A054 /* NMPPresenter.swift in Sources */,
 				13EE06F123A58F2B00983F7E /* TableViewModel.swift in Sources */,
 				13EE06D723A55D2800983F7E /* TestViewController.swift in Sources */,
+				132D5F4A23A7AE060082A054 /* NMPViewController.swift in Sources */,
 				13EE06F323A60D4B00983F7E /* MostPopularPresenter.swift in Sources */,
 				13EE06E923A55FE500983F7E /* RSSViewController.swift in Sources */,
 				13EE06D523A55D2800983F7E /* AppDelegate.swift in Sources */,
+				132D5F5023A7AE830082A054 /* NMPServices.swift in Sources */,
 				13EE06F923A61CDB00983F7E /* CloudImageService.swift in Sources */,
 				13EE06F723A612CC00983F7E /* AuthLogin.swift in Sources */,
 				13EE06ED23A56C5D00983F7E /* ViewedArticle.swift in Sources */,
 				13EE06EB23A561CD00983F7E /* MostPopularViewController.swift in Sources */,
+				132D5F4C23A7AE260082A054 /* NMPViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

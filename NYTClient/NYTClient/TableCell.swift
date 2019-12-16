@@ -56,10 +56,13 @@ class TableCell: UITableViewCell {
     articleTitle.text = data.title
     articleAbstract.text = data.abstract
     
-    data.imageSubscription.subscribe { [weak self] (image, title, abstract) in
-      self?.imagePreview.image = image
+    //data.articleSubscription.subscribe { [weak self] (image, title, abstract) in
+    /*
+    data.imageSubscription.subscribe { [weak self] (title, abstract)  in
+      self?.imagePreview.image = nil
       self?.articleTitle.text = title
       self?.articleAbstract.text = abstract
     }
+    */
   }
 }

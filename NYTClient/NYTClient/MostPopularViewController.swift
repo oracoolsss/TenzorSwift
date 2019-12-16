@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MostPopularViewController: UIViewController, UITableViewDelegate {
+class MostPopularViewController: UIViewController, UITableViewDelegate, MostPopularView {
+  func getMostPopularArticles() -> [ViewedArticle] {
+    return mostPopularArticles
+  }
   
   var tableView = UITableView()
   
@@ -19,11 +22,11 @@ class MostPopularViewController: UIViewController, UITableViewDelegate {
   private var sections = [SectionViewModel]()
   private var presenter: MostPopularPresenter!
   
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
       //
-      setView()
       
       var tabBarItem = UITabBarItem()
       tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 2)
@@ -34,22 +37,18 @@ class MostPopularViewController: UIViewController, UITableViewDelegate {
       self.tableView.delegate = self
       
       view.addSubview(tableView)
+      
+      presenter = MostPopularPresenter(view: self)
+      //presenter.on
+      //sections = presenter.presentViewModel(articles: getMostPopularArticles())
+      //print(sections[0].cells[0].abstract)
+      
     }
+  func display(viewModel: [SectionViewModel]) {
+    sections = viewModel
+  }
 
   
-}
-
-extension MostPopularViewController {
-  private func setView() {
-    mostPopularService.getMostPopular() {viewedArticles, errorMessage in
-      if let articles = viewedArticles {
-        self.mostPopularArticles = articles
-        self.tableView.reloadData()
-        self.tableView.setContentOffset(CGPoint.zero, animated: false)
-      }
-      if !errorMessage.isEmpty { print("error: " + errorMessage) }
-    }
-  }
 }
 
 extension MostPopularViewController: UITableViewDataSource {
@@ -63,7 +62,7 @@ extension MostPopularViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let label = UILabel(frame: .zero)
-    //label.text = sections[section].footerText
+    label.text = sections[section].footerText
     label.backgroundColor = .red
     
     return label
@@ -81,6 +80,16 @@ extension MostPopularViewController: UITableViewDataSource {
     // indexPath.row
     // indexPath.section
     
+    //let cell: TableCell = tableView.dequeueReusableCell(for: indexPath)
+    
+    
+    // Delegate cell button tap events to this view controller
+    
+    //let track = searchResults[indexPath.row]
+    //cell.configure(data: CellViewModel(title: mostPopularArticles[indexPath.row].title, abstract: mostPopularArticles[indexPath.row].abstract, imageSubscription: nil))
+    
+    //return cell
+    
     return TableCell()
   }
   
@@ -90,6 +99,12 @@ extension MostPopularViewController: UITableViewDataSource {
       tableCell.configure(data: data)
     }
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let track = mostPopularArticles[indexPath.row]
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
 }
+
 
 

@@ -11,7 +11,7 @@ import UIKit
 struct CellViewModel {
   let title: String
   let abstract: String
-  let imageSubscription: ImageSubscription
+  let imageSubscription: ImageSubscription?
 }
 
 struct SectionViewModel {
@@ -20,7 +20,56 @@ struct SectionViewModel {
   let cells: [CellViewModel]
 }
 
-typealias ImageSetter = ((UIImage, String, String) -> Void)
+typealias articleSetter = ((String, String) -> Void)
+
+class ArticleSubscription {
+  private var articleSetter: articleSetter? = nil
+  
+  func subscribe(_ closure: @escaping articleSetter) {
+    articleSetter = closure
+  }
+  
+  func set(title: String, abstract: String) {
+    articleSetter?(title, abstract)
+  }
+}
+
+//
+/*
+ typealias articleSetter = ((UIImage, String, String) -> Void)
+ 
+ class ArticleSubscription {
+ private var articleSetter: articleSetter? = nil
+ 
+ func subscribe(_ closure: @escaping articleSetter) {
+ articleSetter = closure
+ }
+ 
+ func set(_ image: UIImage, title: String, abstract: String) {
+ articleSetter?(image, title, abstract)
+ }
+ }
+
+ 
+ 
+ 
+ 
+ 
+ typealias ImageSetter = ((String)->Void)
+ 
+ class ImageSubscription {
+ private var imageSetter: ImageSetter? = nil
+ 
+ func subscribe(_ closure: @escaping ImageSetter) {
+ imageSetter = closure
+ }
+ 
+ func set(_ image: UIImage, status: String) {
+ imageSetter?(image, status)
+ }
+ }
+*/
+typealias ImageSetter = ((String)->Void)
 
 class ImageSubscription {
   private var imageSetter: ImageSetter? = nil
@@ -29,7 +78,7 @@ class ImageSubscription {
     imageSetter = closure
   }
   
-  func set(_ image: UIImage, title: String, abstract: String) {
-    imageSetter?(image, title, abstract)
+  func set(status: String) {
+    imageSetter?(status)
   }
 }

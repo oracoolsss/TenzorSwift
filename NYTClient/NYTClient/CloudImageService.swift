@@ -11,7 +11,7 @@ import Foundation
 class CloudImageService {
   private let urlSession = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
   
-  func loadImageFronCloud(url: URL, completion: @escaping (Data?, String?) -> ()) {
+  func loadImageFromCloud(url: URL, completion: @escaping (Data?, String?) -> ()) {
     let task = urlSession.dataTask(with: url) { (data, response, error) in
       guard let data = data, let response = response as? HTTPURLResponse else {
         completion(nil, nil)

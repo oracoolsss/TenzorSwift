@@ -13,17 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
+  private let kittyURLs = ["https://www.nastroy.net/pic/images/201712/53424c2c7c.jpg", "https://olnl.net/u17/photo099E/20404303749-0/original.jpeg", "https://gadgetok.ru/wp-content/uploads/2019/05/krasivyj-kot.jpg", "https://gadgetok.ru/wp-content/uploads/2019/05/krasivyj-kot.jpg"]
+  
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
+    UserDefaults.standard.set(kittyURLs, forKey: "kittyURLs")
     self.window = UIWindow(frame: UIScreen.main.bounds)
     
     let firstVC = TestViewController()
     let RSSVC = RSSViewController()
     let mostPopularVC = MostPopularViewController()
+    let testVC = ImageListViewController()
   
     let tabBarVC = UITabBarController()
-    tabBarVC.setViewControllers([firstVC, RSSVC, mostPopularVC], animated: true)
+    tabBarVC.setViewControllers([firstVC, RSSVC, mostPopularVC, testVC], animated: true)
     
     self.window?.rootViewController = tabBarVC
     self.window?.makeKeyAndVisible()

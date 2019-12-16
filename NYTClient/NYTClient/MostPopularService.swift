@@ -9,7 +9,7 @@
 import Foundation
 
 class MostPopularService {
-  typealias QueryResult = ([ViewedArticle]?, String) -> ()
+  typealias QueryResult = ([ViewedArticle]?, String?) -> ()
   var articles: [ViewedArticle] = []
   var errorMessage = ""
   
@@ -38,20 +38,22 @@ class MostPopularService {
         let response = response as? HTTPURLResponse,
         response.statusCode == 200 {
         print("da")
-        //print(String(decoding: data, as: UTF8.self))
-        //self.updateArticles(data)
         
         self.articles.removeAll()
         do {
           //data.
           print("updating articles")
-          let response = try self.decoder.decode(vaResponseBody.self, from: data)
-          self.articles = response.results
+          var str = String(decoding: data, as: UTF8.self);
+          str = str.replacingOccurrences(of: "\\/", with: "/")
+          for substr in ["per", "geo", "des", "org"] {
+            str = str.replacingOccurrences(of: "\"\(substr)_facet\":\"\"", with: "\"\(substr)_facet\":[]")
+          }
+          let responseFromJSON = try self.decoder.decode(vaResponseBody.self, from: str.data(using: .utf8)!)
+          self.articles = responseFromJSON.results
         } catch let decodeError as NSError {
           self.errorMessage += "Decoder error: \(decodeError.localizedDescription)"
           return
         }
-
         
         OperationQueue.main.addOperation {
           completion(self.articles, self.errorMessage)
@@ -61,19 +63,4 @@ class MostPopularService {
     dataTask?.resume()
   }
   
-  fileprivate func updateArticles(_ data: Data) {
-    articles.removeAll()
-    do {
-      //data.
-      print("updating articles")
-      let response = try decoder.decode(vaResponseBody.self, from: data)
-      print("1")
-      articles = response.results
-      print("2")
-      print(articles[0].abstract ?? "blin...")
-    } catch let decodeError as NSError {
-      errorMessage += "Decoder error: \(decodeError.localizedDescription)"
-      return
-    }
-  }
 }
