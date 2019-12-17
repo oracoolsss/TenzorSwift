@@ -15,11 +15,15 @@ class MostPopularViewController: UIViewController, UITableViewDelegate, UITableV
   
   var mvArticles: [ViewedArticle] = []
   let mpService = MostPopularService()
+  var subs = [ImageSubscription]()
+  
+  private var presenter: ArticleImagePresenter!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     createTable()
+    
   }
   
   func createTable() {
@@ -38,7 +42,10 @@ class MostPopularViewController: UIViewController, UITableViewDelegate, UITableV
       }
       if !errMessage!.isEmpty { print("Search error: " + errMessage!) }
     }
-    
+    presenter = ArticleImagePresenter()
+    subs = presenter.onViewDidLoad(articles: mvArticles)
+    print(mvArticles.count)
+    print(subs.count)
     view.addSubview(tableView)
   }
   
@@ -47,14 +54,25 @@ class MostPopularViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //return 3
     return mvArticles.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = TableCell()
-    cell.configure(article: mvArticles[indexPath.row])
-    
+    cell.configure()
     return cell
+    /*
+    if(subs.count < indexPath.row) {
+      
+    }
+    else {
+      let data = subs[indexPath.row]
+      let cell = TableCell()
+      cell.configure(article: mvArticles[indexPath.row], data: data)
+      return cell
+    }
+    */
   }
   
   
