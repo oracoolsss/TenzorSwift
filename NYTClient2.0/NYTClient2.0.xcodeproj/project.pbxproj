@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132D4C4923A8D38E00D26129 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D4C4823A8D38E00D26129 /* TabBarController.swift */; };
+		132D4C4B23A8D74700D26129 /* MPForWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D4C4A23A8D74700D26129 /* MPForWeekViewController.swift */; };
 		132D5F6423A7E7D00082A054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D5F6323A7E7D00082A054 /* AppDelegate.swift */; };
 		132D5F6623A7E7D00082A054 /* MostPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D5F6523A7E7D00082A054 /* MostPopularViewController.swift */; };
 		132D5F6923A7E7D00082A054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132D5F6723A7E7D00082A054 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		132D4C4823A8D38E00D26129 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		132D4C4A23A8D74700D26129 /* MPForWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPForWeekViewController.swift; sourceTree = "<group>"; };
 		132D5F6023A7E7D00082A054 /* NYTClient2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTClient2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		132D5F6323A7E7D00082A054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		132D5F6523A7E7D00082A054 /* MostPopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				132D5F7F23A818060082A054 /* ImageLoader.swift */,
 				132D5F8123A823EC0082A054 /* ArticleImageModel.swift */,
 				132D5F8323A824B90082A054 /* ArticleImagePresenter.swift */,
+				132D4C4823A8D38E00D26129 /* TabBarController.swift */,
+				132D4C4A23A8D74700D26129 /* MPForWeekViewController.swift */,
 			);
 			path = NYTClient2.0;
 			sourceTree = "<group>";
@@ -161,8 +167,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				132D5F8023A818060082A054 /* ImageLoader.swift in Sources */,
+				132D4C4B23A8D74700D26129 /* MPForWeekViewController.swift in Sources */,
 				132D5F7623A806770082A054 /* ViewedArticle.swift in Sources */,
 				132D5F8223A823EC0082A054 /* ArticleImageModel.swift in Sources */,
+				132D4C4923A8D38E00D26129 /* TabBarController.swift in Sources */,
 				132D5F8423A824B90082A054 /* ArticleImagePresenter.swift in Sources */,
 				132D5F6623A7E7D00082A054 /* MostPopularViewController.swift in Sources */,
 				132D5F7E23A816F10082A054 /* ArticleImageService.swift in Sources */,

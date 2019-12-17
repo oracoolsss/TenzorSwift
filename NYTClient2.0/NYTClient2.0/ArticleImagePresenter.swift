@@ -22,7 +22,8 @@ class ArticleImagePresenter {
   private func presentViewModel(articlesCount: Int) -> [ImageSubscription] {
     
     var subscriptions = [ImageSubscription]()
-    for i in 0..<articlesCount {
+    //for i in 0..<articlesCount {
+    for i in 0..<100 {
       let subscription = ImageSubscription()
       subscriptions.append(subscription)
     }
@@ -33,7 +34,7 @@ class ArticleImagePresenter {
   }
   
   private func loadImages(articles: [ViewedArticle], subscriptions: [ImageSubscription]) {
-    assert(articles.count == subscriptions.count, "Что то пошло не так")
+    //assert(articles.count == subscriptions.count, "Что то пошло не так")
     
     for i in stride(from: 0, to: articles.count, by: 1) {
       guard let articleUrl = URL(string: articles[i].media[0].mediaMetadata[0].url) else {

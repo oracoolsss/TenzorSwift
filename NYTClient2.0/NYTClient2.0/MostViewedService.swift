@@ -21,10 +21,11 @@ class MostPopularService {
   var dataTask: URLSessionDataTask?
   let decoder = JSONDecoder()
   
-  func getMostPopular(completion: @escaping QueryResult) {
+  //period can be only 1, 7 or 30
+  func getMostPopular(period: Int, completion: @escaping QueryResult) {
     dataTask?.cancel()
     
-    guard let url = URL(string: "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=84jUCMH3SDNn4YO8nOJOrmcd1Wm17u7K") else {
+    guard let url = URL(string: "https://api.nytimes.com/svc/mostpopular/v2/viewed/\(period).json?api-key=84jUCMH3SDNn4YO8nOJOrmcd1Wm17u7K") else {
       return
     }
     

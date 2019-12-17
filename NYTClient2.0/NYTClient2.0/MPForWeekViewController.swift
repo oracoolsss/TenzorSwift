@@ -1,16 +1,16 @@
 //
-//  ViewController.swift
+//  MPForWeekViewController.swift
 //  NYTClient2.0
 //
-//  Created by oracool on 16/12/2019.
+//  Created by oracool on 17/12/2019.
 //  Copyright © 2019 oracool. All rights reserved.
 //
 
 import UIKit
 
-class MostPopularViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MPForWeekViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  private let period = 1
+  private let period = 7
   
   var tableView = UITableView()
   let identifire = "mpCell"
@@ -61,20 +61,14 @@ class MostPopularViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    /*
+    //let data = subs[indexPath.row]
     let cell = TableCell()
-    cell.configure()
+    cell.configure(article: mvArticles[indexPath.row])
     return cell
-    */
     
-    let data = subs[indexPath.row]
-    let cell = TableCell()
-    cell.configure(article: mvArticles[indexPath.row], data: data)
-    return cell
-
   }
   
   
-
+  
 }
 

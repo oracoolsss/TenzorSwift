@@ -32,7 +32,7 @@ class TableCell: UITableViewCell {
     
     articleTitle.numberOfLines = 0
     articleAbstract.numberOfLines = 0
-    //articleTitle.attributed
+    articleTitle.font = UIFont.boldSystemFont(ofSize: articleAbstract.font.pointSize)
     
     contentView.addSubview(imagePreview)
     contentView.addSubview(articleTitle)
@@ -55,24 +55,23 @@ class TableCell: UITableViewCell {
       contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100.0)
       ])
     
-    imagePreview.layer.cornerRadius = 5
     imagePreview.clipsToBounds = true
   }
   
   func configure(article: ViewedArticle, data: ImageSubscription) {
-    //let imageLoader = ImageLoader()
     articleTitle.text = article.title
     articleAbstract.text = article.abstract
-    //imagePreview.image = UIImage(named: "cheboxary.jpg")
-    //imagePreview.image = imageLoader.loadImage(mediaArray: article.media)
-    //print(article.media[0].mediaMetadata[0].url)
-    
-    //data.articleSubscription.subscribe { [weak self] (image, title, abstract) in
     
      data.subscribe { [weak self] (title, abstract)  in
      self?.imagePreview.image = nil
      }
     
+  }
+  
+  func configure(article: ViewedArticle) {
+    articleTitle.text = article.title
+    articleAbstract.text = article.abstract
+    imagePreview.image = UIImage(named: "cheboxary.jpg")
   }
   
   func configure() {
