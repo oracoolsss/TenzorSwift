@@ -38,14 +38,15 @@ class MPForWeekViewController: UIViewController, UITableViewDelegate, UITableVie
     mpService.getMostPopular(period: period) { results, errMessage in
       if let results = results {
         self.mvArticles = results
+        
         self.tableView.reloadData()
         print(self.mvArticles[0].abstract)
         self.tableView.setContentOffset(CGPoint.zero, animated: false)
       }
       if !errMessage!.isEmpty { print("Search error: " + errMessage!) }
     }
-    presenter = ArticleImagePresenter()
-    subs = presenter.onViewDidLoad(articles: mvArticles)
+    //presenter = ArticleImagePresenter()
+    //subs = presenter.onViewDidLoad(articles: mvArticles)
     print(mvArticles.count)
     print(subs.count)
     view.addSubview(tableView)

@@ -10,22 +10,31 @@ import UIKit
 
 class MostPopularViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
-  private let period = 1
+  private var period = Int()
   
   var tableView = UITableView()
   let identifire = "mpCell"
-  
+  var refreshControl = UIRefreshControl()
   var mvArticles: [ViewedArticle] = []
   let mpService = MostPopularService()
-  var subs = [ImageSubscription]()
   
-  private var presenter: ArticleImagePresenter!
+  convenience init(period: Int) {
+    self.init(nibName: nil, bundle: nil)
+    self.period = period
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    refreshControl.addTarget(self, action: #selector(updateTable), for: .valueChanged)
+    tableView.refreshControl = refreshControl
     createTable()
-    
+  }
+  
+  @objc func updateTable() {
+    print("reloading data")
+    tableView.reloadData()
+    refreshControl.endRefreshing()
   }
   
   func createTable() {
@@ -33,21 +42,17 @@ class MostPopularViewController: UIViewController, UITableViewDelegate, UITableV
     tableView.register(TableCell.self, forCellReuseIdentifier: identifire)
     self.tableView.delegate = self
     self.tableView.dataSource = self
-    
+    //size???
     tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     mpService.getMostPopular(period: period) { results, errMessage in
       if let results = results {
         self.mvArticles = results
         self.tableView.reloadData()
-        print(self.mvArticles[0].abstract)
         self.tableView.setContentOffset(CGPoint.zero, animated: false)
       }
       if !errMessage!.isEmpty { print("Search error: " + errMessage!) }
     }
-    presenter = ArticleImagePresenter()
-    subs = presenter.onViewDidLoad(articles: mvArticles)
-    print(mvArticles.count)
-    print(subs.count)
+    
     view.addSubview(tableView)
   }
   
@@ -56,25 +61,14 @@ class MostPopularViewController: UIViewController, UITableViewDelegate, UITableV
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //return 3
     return mvArticles.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    /*
     let cell = TableCell()
-    cell.configure()
+    cell.configure(article: mvArticles[indexPath.row])
     return cell
-    */
-    
-    let data = subs[indexPath.row]
-    let cell = TableCell()
-    cell.configure(article: mvArticles[indexPath.row], data: data)
-    return cell
-
   }
-  
-  
 
 }
 

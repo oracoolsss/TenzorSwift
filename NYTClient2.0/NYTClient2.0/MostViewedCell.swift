@@ -58,16 +58,6 @@ class TableCell: UITableViewCell {
     imagePreview.clipsToBounds = true
   }
   
-  func configure(article: ViewedArticle, data: ImageSubscription) {
-    articleTitle.text = article.title
-    articleAbstract.text = article.abstract
-    
-     data.subscribe { [weak self] (title, abstract)  in
-     self?.imagePreview.image = nil
-     }
-    
-  }
-  
   func configure(article: ViewedArticle) {
     articleTitle.text = article.title
     articleAbstract.text = article.abstract

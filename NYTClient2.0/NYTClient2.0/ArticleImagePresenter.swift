@@ -9,7 +9,7 @@
 import UIKit
 
 class ArticleImagePresenter {
-  private let cloudService = CloudImageService()
+  private let cloudService = ArticleImageService()
   
   func onViewDidLoad(articles: [ViewedArticle]) -> [ImageSubscription]{
     //let kittyURLs = UserDefaults.standard.object(forKey: "kittyURLs") as! [String]
@@ -41,14 +41,14 @@ class ArticleImagePresenter {
         assertionFailure("Неправильный урл")
         continue
       }
-      let subscription = subscriptions[i]
+      //let subscription = subscriptions[i]
       
       cloudService.loadImageFromCloud(url: articleUrl) { (data, status) in
         guard let data = data, let status = status else {
           return
         }
         if let image = UIImage(data: data) {
-          subscription.set(image, status: status)
+          subscriptions[i].set(image, status: status)
         }
       }
     }

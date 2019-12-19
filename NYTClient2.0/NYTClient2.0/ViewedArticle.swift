@@ -53,7 +53,8 @@ struct ViewedArticle: Codable {
 
 // MARK: - Media
 struct Media: Codable {
-  let type, subtype, caption, copyright: String
+  let type, subtype, copyright: String
+  let caption: String
   let approvedForSyndication: Int
   let mediaMetadata: [MediaMetadatum]
   
