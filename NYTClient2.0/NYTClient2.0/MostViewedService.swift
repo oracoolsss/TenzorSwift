@@ -64,10 +64,6 @@ class MostPopularService {
           }
 
           self.articles = responseFromJSON.results
-          print("updatied articles \(period)")
-          if period == 30 {
-            print(self.articles[0].abstract)
-          }
         } catch let decodeError as NSError {
           self.errorMessage += "Decoder error: \(decodeError.localizedDescription)"
           return

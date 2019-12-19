@@ -20,7 +20,7 @@ class TabBarController: UITabBarController {
     for period in periods {
       let mpViewController = MostPopularViewController(period: period)
       let mpNavController = UINavigationController(rootViewController: mpViewController)
-      mpNavController.tabBarItem.title = "MP4\(period)DAY\(period == 1 ? "" : "s")"
+      mpNavController.tabBarItem.title = "MP4\(period)DAY\(period == 1 ? "" : "S")"
       navControllers.append(mpNavController)
     }
     return navControllers
